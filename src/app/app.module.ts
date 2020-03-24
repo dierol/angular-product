@@ -8,21 +8,32 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
+import { NgxLocalStorageModule } from 'ngx-localstorage';
+import { LoginComponent } from './authentication/login/login.component';
+import { LogoutComponent } from './authentication/logout/logout.component';
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SessionTokenInterceptor } from './authentication/session-token.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     NgbModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxLocalStorageModule.forRoot()
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: SessionTokenInterceptor, multi: true }
+  ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

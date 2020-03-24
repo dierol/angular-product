@@ -36,7 +36,6 @@ export class ProductEditComponent implements OnInit {
   };
 
   submit() {
-      console.log(this.service);
       let id = this.product.id;
       if (id > 0) {
           this.service.put(id, this.product).subscribe(response => this.router.navigate(['/products']));

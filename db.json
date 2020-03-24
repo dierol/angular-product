@@ -17,6 +17,40 @@
       "name": "scarpe",
       "description": "scarpe di test",
       "price": 45
+    },
+    {
+      "id": 4,
+      "name": "test mouse",
+      "description": "questo è un test ",
+      "price": 51
+    },
+    {
+      "id": 5,
+      "name": "test",
+      "description": "testtesttesttesttesttesttest",
+      "price": 0
+    }
+  ],
+  "users": [
+    {
+      "unique": "diegotest",
+      "model": {
+        "access_token": "twin peaks",
+        "user": {
+          "id": 1,
+          "firstname": "Diego"
+        }
+      }
+    },
+    {
+      "unique": "gabrieletest",
+      "model": {
+        "access_token": "twin peaks",
+        "user": {
+          "id": 1,
+          "firstname": "Diego"
+        }
+      }
     }
   ]
 }
