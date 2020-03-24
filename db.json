@@ -1,0 +1,10 @@
+{
+  "posts": [
+    {
+        "id": 1,
+        "name": "orologio",
+        "description": "orologio di test",
+        "price": 12.50
+    }
+  ]
+}
