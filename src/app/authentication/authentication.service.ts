@@ -29,5 +29,24 @@ export class AuthenticationService {
     });
 
     return p;
+  };
+
+  // si potrebbe fafilmente riarrangiare il tutto in modo
+  // che "isLoggedIn" diventi una proprietà di tipo boolean 
+  // che viene valorizzata a true al login (in caso di successo)
+  // e, inserendo una funzionalità di logout al servizio, venga poi
+  // settata a false al logout.
+  isLoggedIn(): boolean {
+    let session = this.localStorage.get('session') || {};
+
+    let sessionToken = session.access_token || '';
+
+    return !!sessionToken;
+  };
+
+  getSessionToken(): string | null {
+    let session = this.localStorage.get('session') || {};
+
+    return session.access_token || null;
   }
 }
