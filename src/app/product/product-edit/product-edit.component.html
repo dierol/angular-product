@@ -1,45 +1,46 @@
 <section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">{{ label }}</h1>
-    </div>
-    <div class="">
-        <button type="button" class="btn btn-primary"
-            [routerLink]="['/products']">Back to list</button>
-    </div>
+  <div class="container">
+    <h1 class="jumbotron-heading">{{ label }}</h1>
+  </div>
+  <div class="">
+    <button type="button" class="btn btn-primary"
+      [routerLink]="['/products']">Back to list</button>
+  </div>
 </section>
 
 <section class="text-center">
-    <div class="container">
-        <form name="form" (ngSubmit)="f.form.valid && submit()" #f="ngForm">
-            <div>
-                <div class="text-left form-group">
-                    <label>Name</label>
-                    <input name="name" class="form-control" [(ngModel)]="product.name" #name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required minlength="3"/>
-                    <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
-                        <div *ngIf="name.errors.required">Name is required</div>
-                        <div *ngIf="name.errors.minlength">Name must be at least 3 char</div>
-                    </div>
-                </div>
-                <div class="text-left form-group">
-                    <label>Description</label>
-                    <input name="description" class="form-control" [(ngModel)]="product.description" #description="ngModel" [ngClass]="{ 'is-invalid': f.submitted && description.invalid }" required minlength="10"/>
-                    <div *ngIf="f.submitted && description.invalid" class="invalid-feedback">
-                        <div *ngIf="description.errors.required">Description is required</div>
-                        <div *ngIf="description.errors.minlength">Description must be at least 10 char</div>
-                    </div>
-                </div>
-                <div class="text-left form-group">
-                    <label>Price</label>
-                    <input name="price" class="form-control" [(ngModel)]="product.price" #price="ngModel" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }" type="number"/>
-                    <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
-                        <div *ngIf="price.errors.required">Price is required</div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center">
-                <button class="btn btn-primary mr-1">Save</button>
-                <button class="btn btn-secondary" type="reset">Cancel</button>
-            </div>
-        </form>
-    </div>
+  <div class="container">
+    <form name="form" (ngSubmit)="f.form.valid && submit()" #f="ngForm">
+      <div>
+        <div class="text-left form-group">
+          <label>Name</label>
+          <input name="name" class="form-control" [(ngModel)]="product.name" #name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required minlength="3"/>
+          <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+            <div *ngIf="name.errors.required">Name is required</div>
+            <div *ngIf="name.errors.minlength">Name must be at least 3 char</div>
+          </div>
+        </div>
+        <div class="text-left form-group">
+          <label>Description</label>
+          <input name="description" class="form-control" [(ngModel)]="product.description" #description="ngModel" [ngClass]="{ 'is-invalid': f.submitted && description.invalid }" required minlength="10"/>
+          <div *ngIf="f.submitted && description.invalid" class="invalid-feedback">
+            <div *ngIf="description.errors.required">Description is required</div>
+            <div *ngIf="description.errors.minlength">Description must be at least 10 char</div>
+          </div>
+        </div>
+        <div class="text-left form-group">
+          <label>Price</label>
+          <input name="price" class="form-control" [(ngModel)]="product.price" #price="ngModel" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }" required type="number" min="1"/>
+          <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
+            <div *ngIf="price.errors.required">Price is required</div>
+            <div *ngIf="price.errors.min">Price must be of 1 at leats. Nothing's for free!</div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-primary mr-1">Save</button>
+        <button class="btn btn-secondary" type="reset">Cancel</button>
+      </div>
+    </form>
+  </div>
 </section>

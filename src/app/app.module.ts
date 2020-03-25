@@ -14,6 +14,7 @@ import { LogoutComponent } from './authentication/logout/logout.component';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SessionTokenInterceptor } from './authentication/session-token.interceptor';
+import { ProductModalComponent } from './product/product-modal/product-modal.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SessionTokenInterceptor } from './authentication/session-token.intercep
     ProductListComponent,
     ProductEditComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    ProductModalComponent
   ],
   imports: [
     NgbModule,
